@@ -1,0 +1,17 @@
+version: '3.8'
+
+networks:
+  bot_network:
+    name: bot_network
+
+services:
+  bot:
+    container_name: bot
+    build:
+      context: ./docker/python
+    ports:
+      - '9001:9001'
+    volumes:
+      - ./:/var/www/bot
+    networks:
+      - bot_network
